@@ -2,15 +2,21 @@
 =========
 
 Contributors: Zack
+
 Author URI: http://zacklive.com
-Tags:
-Requires at least: 3.6
+
+Requires WordPress at least: 3.6
+
 Tested up to: 4.1
+
 Stable tag: 1.0.
+
 License: GPLv2 or later
+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Based on Twitter Bootstrap and Automattic Underscore(_s). Supporting Font Awesome, multi level dropdown navigation, Scheme.org markup.
+
+A WordPress starter theme based on Twitter Bootstrap and Automattic Underscore(_s). Supporting Font Awesome, multi level dropdown navigation, Scheme.org markup.
 
 == Credits ==
 
