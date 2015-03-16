@@ -1,0 +1,355 @@
+/*
+Theme Name: ZackLive
+Theme URI: http://zacklive.com/framework
+Author: Zack
+Author URI: http://zacklive.com
+Description: A WordPress Starter theme based on Twitter Bootstrap and Automattic Underscore(_s). Supporting Font Awesome, multi level dropdown navigation, Scheme.org markup.
+Version: 1.0
+
+Text Domain: zacklive
+Tags: fluid-layout, translation-ready, microformats, white, light, two-columns, right-sidebar, fixed-layout, responsive-layout, custom-background, custom-menu, editor-style, featured-images, flexible-header, full-width-template, post-formats, sticky-post, accessibility-ready
+
+License: GNU General Public License V2 or Later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Long title fix
+2.0 Alignments
+3.0 Media
+    3.1 Images
+    3.2 Captions
+    3.3 Galleries
+    3.4 Screen Reader
+4.0 Navigation
+5.0 Content
+6.0 Widgets
+7.0 Pagination
+8.0 Infinite Scrolling by Jetpack (Disabled by default)
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Long title fix
+--------------------------------------------------------------*/
+/* This is a small security for too long strings titles */
+body {
+	word-wrap: break-word;
+}
+
+/*--------------------------------------------------------------
+2.0 Alignment
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
+3.0 Media
+--------------------------------------------------------------*/
+/* 3.1 Images */
+img {
+	/*display: inline-block; */
+	height: auto;
+	max-width: 100%;
+}
+img[class*="wp-image-"] {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* 3.2 Captions */
+.wp-caption {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+}
+.wp-caption img[class*="wp-image-"] {
+  display: block;
+  margin: 0 auto;
+}
+.wp-caption-text {
+  text-align: center;
+}
+.wp-caption .wp-caption-text {
+    padding: 0.8075em 1em;
+    font-size: 12px;
+    background: #e5e5e5;
+    background: hsl(0, 0%, 90%);
+}
+
+/* 3.3 Gallery */
+.gallery {
+    margin-bottom: 1.5em;
+    overflow: hidden;
+}
+
+.gallery-item {
+    position: relative;
+    float: left;
+    padding: 1.79104477%;
+    text-align: center;
+    width:100%;
+}
+
+.gallery-columns-2 .gallery-item {
+    max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+    max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+    max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+    max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+    max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+    max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+    max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+    max-width: 11.11%;
+}
+
+.gallery-icon img {
+    margin: 0 auto;
+}
+
+.gallery-caption {
+    background-color: rgba(0, 0, 0, 0.7);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+    max-height: 50%;
+    opacity: 0;
+    padding: 6px 8px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+}
+
+.gallery-columns-6 .gallery-caption,
+.gallery-columns-7 .gallery-caption,
+.gallery-columns-8 .gallery-caption,
+.gallery-columns-9 .gallery-caption {
+  display: none;
+}
+
+/* 3.4 Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
+}
+
+/******************************************************************
+4.0 Navigation
+******************************************************************/
+/*
+all navs have a .nav class applied via
+the wp_menu function; this is so we can
+easily write one group of styles for
+the navs on the site so our css is cleaner
+and more scalable.
+*/
+nav ul.nav li a:hover,
+nav ul.nav li a:focus {
+  background-color: #eeeeee !important;
+}
+.navbar,
+.navbar-inverse {
+  /* end .menu li */
+}
+/* end .navbar, .navbar-inverse */
+/* highlight current page */
+li.current-menu-item a,
+li.current_page_item a,
+li.current_page_ancestor a {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+/* end current highlighters */
+.site-title a {
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+  font-size: 40px;
+  font-weight: 500;
+  font-family: Lato, Arial, Helvetica, Geneva, sans-serif;
+  color: #333333;
+}
+.site-title a:hover,
+.site-title a:focus {
+  color: #555555;
+  text-decoration: none;
+}
+.site-description {
+  color: #555555;
+  margin-top: 10px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+/*--------------------------------------------------------------
+5.0 Content
+--------------------------------------------------------------*/
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+/* Nested comments. */
+.comment .children {
+    margin-left: 1.5em;
+    list-style: none;
+}
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
+    width: 50%;
+}
+
+/* Style for Entry Footer */
+.cat-links {
+    margin-left: 5px;
+}
+.tags-links {
+    margin-left: 5px;
+}
+.comments-link {
+    margin-left: 5px;
+}
+.edit-link {
+    margin-left: 5px;
+}
+
+/* Style for Single post navigation (Previous post & Next post) */
+.pager a,
+.nav-previous a,
+.nav-next a {
+  color: #999;
+}
+.pager a:hover,
+.nav-previous a:hover,
+.nav-next a:hover {
+  color: #444;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*--------------------------------------------------------------
+6.0 Widgets
+--------------------------------------------------------------*/
+/* Here some needed widget styles
+ * Most widgets are adapted in the file bootstrap-wp.js - and REALLY easy to modify! ;) */
+
+.widget {
+    margin-bottom: 2em;
+}
+.widget_nav_menu ul.sub-menu li,
+.widget_pages ul.children li {
+    padding-left: 15px;
+}
+
+/* Make sure select elements fit in widgets */
+.widget select {
+	max-width: 100%;
+}
+
+.widget ul {
+  padding: 0;
+  margin: 0;
+}
+.widget ul li {
+  padding: 5px 0;
+  list-style: none;
+  /* deep nesting */
+}
+.widget-title {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #DDDDDD;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/******************************************************************
+7.0 Pagination
+******************************************************************/
+.pagination li a:hover,
+.pagination li a:focus {
+  background-color: #428bca !important;
+  color: #fff !important;
+}
+.pagination li .active,
+.pagination li span:hover {
+  background-color: #6aa3d5;
+  color: #fff;
+}
+
+/******************************************************************
+8.0 Infinite Scrolling by Jetpack
+******************************************************************/
+/*
+.infinite-scroll .page-links,
+.infinite-scroll.neverending .site-footer {
+    display: none;
+}
+*/
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+
+/*
+.infinity-end.neverending .site-footer {
+    display: block;
+}
+*/
