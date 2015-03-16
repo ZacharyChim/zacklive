@@ -1,7 +1,7 @@
 == ZackLive ==
 =========
 
-A WordPress starter theme based on Twitter Bootstrap and Automattic Underscore(_s). Supporting Font Awesome, multi level dropdown navigation, Scheme.org markup.
+A WordPress starter theme based on Twitter Bootstrap and Automattic Underscore(_s). Supporting Font Awesome, multi level dropdown navigation, Schema.org markup.
 
 == Information ==
 -----------------
