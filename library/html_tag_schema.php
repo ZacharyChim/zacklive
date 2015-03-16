@@ -2,6 +2,7 @@
 if ( ! ( function_exists( 'html_tag_schema' ) ) ):
 /*
  * Schema for HTML, used in header.php
+ * Used in header.php
  */
 function html_tag_schema() {
     $schema = 'http://schema.org/';
