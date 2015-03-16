@@ -1,6 +1,10 @@
 == ZackLive ==
 =========
 
+A WordPress starter theme based on Twitter Bootstrap and Automattic Underscore(_s). Supporting Font Awesome, multi level dropdown navigation, Scheme.org markup.
+
+=========
+
 Contributors: Zack
 
 Author URI: http://zacklive.com
@@ -16,7 +20,6 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
-A WordPress starter theme based on Twitter Bootstrap and Automattic Underscore(_s). Supporting Font Awesome, multi level dropdown navigation, Scheme.org markup.
 
 == Credits ==
 
