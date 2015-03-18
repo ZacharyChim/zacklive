@@ -10,6 +10,8 @@ Contributors: Zack
 
 Author URI: http://zacklive.com
 
+Theme URI: http://zacklive.com/zacklive-bootstrap-underscores-wordpress-starter-theme/
+
 Requires WordPress at least: 3.6
 
 Tested up to: 4.1
@@ -41,7 +43,6 @@ Author URI: http://ideaboxthemes.com
 
 BREW
 Source: https://github.com/slightlyoffbeat/brew
-Aurthor URI: http://danvswild.com/2013/10/23/brew-an-easy-way-to-build-wordpress-themes-with-bootstrap-3/
 
 == Changelog ==
 ---------------
