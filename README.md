@@ -6,11 +6,13 @@ A WordPress starter theme based on Twitter Bootstrap and Automattic Underscore(_
 == Information ==
 -----------------
 
-Contributors: Zack
-
-Author URI: http://zacklive.com
+Theme Name: ZackLive
 
 Theme URI: http://zacklive.com/zacklive-bootstrap-underscores-wordpress-starter-theme/
+
+Author: Zack
+
+Author URI: http://zacklive.com
 
 Requires WordPress at least: 3.6
 
@@ -47,8 +49,11 @@ Source: https://github.com/slightlyoffbeat/brew
 == Changelog ==
 ---------------
 
+= 1.0.2 =
+Update file structure and fix some bugs.
+
 = 1.0 =
 
 15.03.2015
-Initial Release
+Initial Release.
 

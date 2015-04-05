@@ -5,9 +5,7 @@
  * The area of the page that contains both current comments
  * and the comment form. The actual display of comments is
  * handled by a callback to zacklive_comment() which is
- * located in the includes/template-tags.php file.
- *
- * @package zacklive
+ * located in the library/zacklive.php file.
  */
 
 /*
@@ -27,7 +25,7 @@ if ( post_password_required() )
 		<header class="page-header">
 			<h2 class="comments-title">
 				<?php
-					printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'zacklive' ),
+					printf( _nx( 'One Response on &ldquo;%2$s&rdquo;', '%1$s Responses on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'zacklive' ),
 						number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
 				?>
 			</h2>
@@ -67,13 +65,6 @@ if ( post_password_required() )
 		<?php endif; // check for comment navigation ?>
 
 	<?php endif; // have_comments() ?>
-
-	<?php
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-	?>
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'zacklive' ); ?></p>
-	<?php endif; ?>
 
 	<?php comment_form(); ?>
 

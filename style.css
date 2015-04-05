@@ -1,10 +1,10 @@
 /*
 Theme Name: ZackLive
-Theme URI: http://zacklive.com/framework
+Theme URI: http://zacklive.com/zacklive-bootstrap-underscores-wordpress-starter-theme/
 Author: Zack
 Author URI: http://zacklive.com
 Description: A WordPress Starter theme based on Twitter Bootstrap and Automattic Underscore(_s). Supporting Font Awesome, multi level dropdown navigation, Schema.org markup.
-Version: 1.0
+Version: 1.0.2
 
 Text Domain: zacklive
 Tags: fluid-layout, translation-ready, microformats, white, light, two-columns, right-sidebar, fixed-layout, responsive-layout, custom-background, custom-menu, editor-style, featured-images, flexible-header, full-width-template, post-formats, sticky-post, accessibility-ready
@@ -16,45 +16,47 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-1.0 Long title fix
+1.0 Global Settings
 2.0 Alignments
 3.0 Media
     3.1 Images
     3.2 Captions
     3.3 Galleries
     3.4 Screen Reader
-4.0 Navigation
+4.0 Header & Navigation
 5.0 Content
-6.0 Widgets
-7.0 Pagination
-8.0 Infinite Scrolling by Jetpack (Disabled by default)
+6.0 Comments
+7.0 Widgets
+8.0 Footer
+9.0 Pagination
+10.0 Infinite Scrolling by Jetpack (Disabled by default)
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-1.0 Long title fix
+1.0 Global Settings
 --------------------------------------------------------------*/
 /* This is a small security for too long strings titles */
 body {
-	word-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /*--------------------------------------------------------------
 2.0 Alignment
 --------------------------------------------------------------*/
 .alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
 }
 .alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
 }
 .aligncenter {
-	clear: both;
-	display: block;
-	margin: 0 auto;
+  clear: both;
+  display: block;
+  margin: 0 auto;
 }
 
 /*--------------------------------------------------------------
@@ -62,13 +64,13 @@ body {
 --------------------------------------------------------------*/
 /* 3.1 Images */
 img {
-	/*display: inline-block; */
-	height: auto;
-	max-width: 100%;
+  /*display: inline-block; */
+  height: auto;
+  max-width: 100%;
 }
 img[class*="wp-image-"] {
-	margin-top: 10px;
-	margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* 3.2 Captions */
@@ -86,7 +88,7 @@ img[class*="wp-image-"] {
 .wp-caption .wp-caption-text {
     padding: 0.8075em 1em;
     font-size: 12px;
-    background: #e5e5e5;
+    background: #E5E5E5;
     background: hsl(0, 0%, 90%);
 }
 
@@ -145,7 +147,7 @@ img[class*="wp-image-"] {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    color: #fff;
+    color: #FFF;
     font-size: 12px;
     line-height: 1.5;
     margin: 0;
@@ -172,43 +174,62 @@ img[class*="wp-image-"] {
 
 /* 3.4 Text meant only for screen readers */
 .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
 }
 .screen-reader-text:hover,
 .screen-reader-text:active,
 .screen-reader-text:focus {
-	background-color: #f1f1f1;
-	border-radius: 3px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
-	color: #21759b;
-	display: block;
-	font-size: 14px;
-	font-weight: bold;
-	height: auto;
-	left: 5px;
-	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000; /* Above WP toolbar */
+  background-color: #F1F1F1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759B;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000; /* Above WP toolbar */
 }
 
 /******************************************************************
-4.0 Navigation
+4.0 Header & Navigation
 ******************************************************************/
 /*
-all navs have a .nav class applied via
-the wp_menu function; this is so we can
-easily write one group of styles for
-the navs on the site so our css is cleaner
-and more scalable.
-*/
+ * Header
+ */
+.site-title a {
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+  font-size: 40px;
+  font-weight: 500;
+  font-family: Lato, Arial, Helvetica, Geneva, sans-serif;
+  color: #333;
+}
+.site-title a:hover,
+.site-title a:focus {
+  color: #555;
+  text-decoration: none;
+}
+.site-description {
+  color: #555;
+  margin-top: 10px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/*
+ * Navigation
+ */
+
 nav ul.nav li a:hover,
 nav ul.nav li a:focus {
-  background-color: #eeeeee !important;
+  background-color: #EEE !important;
 }
 .navbar,
 .navbar-inverse {
@@ -222,34 +243,157 @@ li.current_page_ancestor a {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 /* end current highlighters */
-.site-title a {
-  text-decoration: none;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
-  font-size: 40px;
-  font-weight: 500;
-  font-family: Lato, Arial, Helvetica, Geneva, sans-serif;
-  color: #333333;
+
+/* Single Post Navigation */
+.post-navigation .pager span {
+  width: 100%;
 }
-.site-title a:hover,
-.site-title a:focus {
-  color: #555555;
-  text-decoration: none;
+
+@media (min-width: 750px) {
+  .post-navigation .pager span {
+    width: auto;
+  }
+  .post-navigation .pager {
+    margin-bottom: 20px;
+  }
 }
-.site-description {
-  color: #555555;
-  margin-top: 10px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+
+.nav-previous {
+    margin-bottom: 20px;
+  }
+@media (min-width: 750px) {
+  .nav-previous {
+    margin-bottom: 0;
+  }
 }
+
 /*--------------------------------------------------------------
 5.0 Content
 --------------------------------------------------------------*/
-.hentry {
-	margin: 0 0 1.5em;
+.hentry, #comments {
+  margin: 0 0 1.5em;
+  background: #FFF;
+  .box-shadow(0 1px 1px rgba(0,0,0,0.05) );
+}
+
+.page-header {
+  padding: 5px 20px 10px;
+  margin: 0 !important;
+  background-color: #FFF;
+}
+
+.entry-header {
+  margin-bottom: 15px;
+  padding: 20px 20px 0;
+  border: none !important;
+}
+
+.entry-title {
+  margin: 0;
+}
+
+.entry-content, .entry-summary {
+  padding: 0 20px 10px;
+}
+
+.entry-footer {
+  padding: 10px 20px 10px;
+  border-top: 1px solid #EEE;
+  color: #888;
+  font-size: 12px;
+}
+
+.entry-footer span {
+  margin-right: 10px;
+}
+
+.entry-footer .glyphicon {
+  margin-right: 5px;
+}
+
+.entry-footer .byline .author {
+  margin-right: initial;
+}
+
+/* Style for Single post navigation (Previous post & Next post) */
+.pager a,
+.nav-previous a,
+.nav-next a {
+  color: #999;
+}
+
+.pager a:hover,
+.nav-previous a:hover,
+.nav-next a:hover {
+  color: #444;
+  text-decoration: none;
+  cursor: pointer;
+}/* end single post navigation style */
+
+.sticky {
+
+}
+.bypostauthor {
+
+}
+
+/*--------------------------------------------------------------
+6.0 Comments
+--------------------------------------------------------------*/
+#comments .media-body {
+  width: 88%;
+  margin-left: 2%;
+  float: left;
+}
+
+.comment-list .comment-author {
+  width: 10%;
+  float: left;
+}
+
+#comments .comment-body {
+  padding: 20px 20px 0;
+}
+
+#comments .comment-body .comment-content {
+  overflow: hidden;
+}
+
+#comments .pingback {
+  margin: 0;
+}
+
+#comments .pingback .comment-body {
+  padding: 10px 20px;
+}
+
+.comment-list .vcard img.avatar {
+  padding: 2px;
+  border: 1px solid #CECECE;
+  background: #FFF;
+}
+
+.comment-list .comment-author img {
+  width: 100%;
+  height: auto;
+}
+
+#respond {
+  padding: 20px;
+}
+
+#reply-title {
+  margin-top: 0;
+}
+
+.comments-title {
+  font-size: 24px;
+  margin: 15px 0 10px;
 }
 
 /* Nested comments. */
 .comment .children {
-    margin-left: 1.5em;
+/*    margin-left: 1.5em; */
     list-style: none;
 }
 
@@ -259,85 +403,98 @@ li.current_page_ancestor a {
     width: 50%;
 }
 
-/* Style for Entry Footer */
-.cat-links {
-    margin-left: 5px;
-}
-.tags-links {
-    margin-left: 5px;
-}
-.comments-link {
-    margin-left: 5px;
-}
-.edit-link {
-    margin-left: 5px;
-}
+.odd {
+  background: #FCFCFC;
+  }
 
-/* Style for Single post navigation (Previous post & Next post) */
-.pager a,
-.nav-previous a,
-.nav-next a {
-  color: #999;
-}
-.pager a:hover,
-.nav-previous a:hover,
-.nav-next a:hover {
-  color: #444;
-  text-decoration: none;
-  cursor: pointer;
-}
+.even {
+  background: #F9F9F9;
+  }
 
+.bypostauthor {
+  background: #EFF5FB;
+}
 /*--------------------------------------------------------------
-6.0 Widgets
+7.0 Widgets
 --------------------------------------------------------------*/
-/* Here some needed widget styles
- * Most widgets are adapted in the file bootstrap-wp.js - and REALLY easy to modify! ;) */
+/* Check out bootstrap-wp.js for more style settings. */
 
 .widget {
-    margin-bottom: 2em;
+  margin-bottom: 2em;
+  background-color: #FFF;
+  overflow: hidden;
 }
 .widget_nav_menu ul.sub-menu li,
 .widget_pages ul.children li {
-    padding-left: 15px;
+  padding-left: 15px;
 }
 
 /* Make sure select elements fit in widgets */
 .widget select {
-	max-width: 100%;
+  max-width: 90%;
+  margin: 10px auto;
 }
 
-.widget ul {
-  padding: 0;
+.widget #calendar_wrap {
+  padding: 5px 15px 0;
+}
+
+.widget ul,
+.textwidget,
+.tagcloud {
+  padding: 10px 15px;
   margin: 0;
 }
+
+.widget .search-form {
+  padding: 10px 0 5px 10px;
+  margin: 0 auto;
+}
+
 .widget ul li {
   padding: 5px 0;
   list-style: none;
   /* deep nesting */
 }
 .widget-title {
-  padding-bottom: 5px;
-  border-bottom: 1px solid #DDDDDD;
+  padding: 10px;
+  margin: 0;
+  border-bottom: 1px solid #DDD;
   font-size: 18px;
   line-height: 24px;
 }
 
 /******************************************************************
-7.0 Pagination
+8.0 Footer
 ******************************************************************/
-.pagination li a:hover,
-.pagination li a:focus {
-  background-color: #428bca !important;
-  color: #fff !important;
+.site-footer {
+  padding: 10px 0;
+  margin-top: 30px;
+  clear: both;
+  color: #AAA;
 }
-.pagination li .active,
-.pagination li span:hover {
-  background-color: #6aa3d5;
-  color: #fff;
+
+.site-footer a,
+.site-footer a:hover {
+  color: #AAA;
 }
 
 /******************************************************************
-8.0 Infinite Scrolling by Jetpack
+9.0 Pagination
+******************************************************************/
+.pagination li a:hover,
+.pagination li a:focus {
+  background-color: #428BCA !important;
+  color: #FFF !important;
+}
+.pagination li .active,
+.pagination li span:hover {
+  background-color: #6AA3D5;
+  color: #FFF;
+}
+
+/******************************************************************
+10.0 Infinite Scrolling by Jetpack
 ******************************************************************/
 /*
 .infinite-scroll .page-links,

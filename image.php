@@ -1,8 +1,6 @@
 <?php
 /**
  * The template for displaying image attachments.
- *
- * @package zacklive
  */
 
 get_header(); ?>

@@ -7,4 +7,6 @@ jQuery(document).ready(function($) { //noconflict wrapper
     $( type="select" ).addClass( 'form-control' );
     // Bootstrap style for Tables
     $( 'table' ).addClass( 'table' );
+    // FitVids for responsive videos. Target your .container, .wrapper, .post, etc.
+    $(".post, .comment-content").fitVids();
 });//end noconflict

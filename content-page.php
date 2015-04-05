@@ -1,8 +1,6 @@
 <?php
 /**
  * The template used for displaying page content in page.php
- *
- * @package zacklive
  */
 ?>
 
@@ -22,6 +20,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php edit_post_link( __( 'Edit', 'zacklive' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php zacklive_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

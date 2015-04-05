@@ -1,6 +1,6 @@
 <?php
 /**
- * @package zacklive
+ * The template used for displaying page content in single.php
  */
 ?>
 
@@ -12,12 +12,8 @@
                     ) ); ?>
         </a>
     <?php } ?>
-	<header class="page-header">
+	<header class="page-header entry-header">
 		<?php the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
-
-		<div class="entry-meta">
-			<?php zacklive_posted_on(); ?>
-		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
 	<div class="entry-content" itemprop="text">

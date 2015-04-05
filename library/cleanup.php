@@ -78,7 +78,7 @@ function my_more_link( $link, $link_button ) {
 /*
 Filter to remove comment author website link. Use this if you wish to cut down the amount of spammers in your comments (while retaining the "Your website" comment field).
 See http://www.wpsquare.com/remove-comment-author-website-link-wordpress/
-*/
+
 function author_link(){
     global $comment;
     $comment_ID = $comment->user_id;
@@ -91,5 +91,5 @@ function author_link(){
     return $return;
 }
 add_filter('get_comment_author_link', 'author_link');
-
+*/
 ?>
