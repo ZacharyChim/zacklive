@@ -50,6 +50,7 @@ Source: https://github.com/slightlyoffbeat/brew
 ---------------
 
 = 1.0.2 =
+
 Update file structure and fix some bugs.
 
 = 1.0 =
