@@ -36,6 +36,7 @@
 			</div><!-- .container -->
 		</header><!-- #masthead -->
 
+	<?php if ( has_nav_menu( 'primary' ) ): ?>
 		<nav class="site-navigation" class="main-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 			<div class="container">
 				<div class="row">
@@ -59,6 +60,7 @@
 				</div><!-- .row -->
 			</div><!-- .container -->
 		</nav><!-- .site-navigation -->
+	<?php endif ?>
 
 		<div id="content" class="site-content">
 			<div class="container">
