@@ -8,11 +8,11 @@ A WordPress starter theme based on Twitter Bootstrap and Automattic Underscore(_
 
 Theme Name: ZackLive
 
-Theme URI: http://zacklive.com/zacklive-bootstrap-underscores-wordpress-starter-theme/
+Theme URI: https://atzack.com/zacklive-bootstrap-underscores-wordpress-starter-theme/
 
 Author: Zack
 
-Author URI: http://zacklive.com
+Author URI: https://atzack.com
 
 Requires WordPress at least: 3.6
 
