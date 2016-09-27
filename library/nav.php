@@ -19,8 +19,8 @@ function zacklive_main_nav() {
         'link_before' => '',                                        // before each link
         'link_after' => '',                                         // after each link
         //'depth' => 3,                                             // limit the depth of the nav
-        'fallback_cb' => 'wp_bootstrap_navwalker::fallback',    // fallback
-        'walker' => new wp_bootstrap_navwalker()                    // for bootstrap nav
+        'fallback_cb' => 'zacklive_bootstrap_navwalker::fallback',    // fallback
+        'walker' => new zacklive_bootstrap_navwalker()                    // for bootstrap nav
     ));
 } // end zacklive main nav
 ?>

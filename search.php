@@ -28,7 +28,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php the_posts_navigation(); ?>
+			<?php zacklive_paginate(); ?>
 
 		<?php else : ?>
 

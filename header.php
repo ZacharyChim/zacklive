@@ -6,14 +6,18 @@
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="<?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> <?php html_tag_schema(); ?>>
+<body <?php body_class(); ?> <?php zacklive_schema(); ?>>
 	<div id="page" class="hfeed site">
 		<?php do_action( 'before' ); ?>
 		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'zacklive' ); ?></a>
@@ -36,7 +40,6 @@
 			</div><!-- .container -->
 		</header><!-- #masthead -->
 
-	<?php if ( has_nav_menu( 'primary' ) ): ?>
 		<nav class="site-navigation" class="main-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 			<div class="container">
 				<div class="row">
@@ -45,7 +48,7 @@
 							<div class="navbar-header">
 								<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
 								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-									<span class="screen-reader-text">Toggle navigation</span>
+									<span class="screen-reader-text"><?php __('Toggle navigation', 'zacklive'); ?></span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
@@ -60,7 +63,6 @@
 				</div><!-- .row -->
 			</div><!-- .container -->
 		</nav><!-- .site-navigation -->
-	<?php endif ?>
 
 		<div id="content" class="site-content">
 			<div class="container">

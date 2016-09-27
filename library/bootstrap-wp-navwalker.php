@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* Adapted from Edward McIntyre's wp_bootstrap_navwalker class. 
+* Adapted from Edward McIntyre's wp_bootstrap_navwalker class.
 * Removed support for glyphicon and added support for Font Awesome
 *
 */
@@ -17,7 +17,7 @@
 //exit if accessed directly
 if(!defined('ABSPATH')) exit;
 
-class wp_bootstrap_navwalker extends Walker_Nav_Menu {
+class zacklive_bootstrap_navwalker extends Walker_Nav_Menu {
 
 	/**
 	 * @see Walker::start_lvl()
@@ -89,7 +89,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 				$class_names = str_replace($classes[$key], '', $class_names);
 
 			}
-			
+
 			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
 			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
@@ -128,7 +128,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			if ( ! empty( $icon ) )
 				$item_output .= '<a'. $attributes .'><span class="fa ' . esc_attr( $icon ) . '"></span>&nbsp;';
 			else
-				$item_output .= '<a'. $attributes .'>';	
+				$item_output .= '<a'. $attributes .'>';
 
 			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 			$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
@@ -210,7 +210,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 				$fb_output .= ' class="' . $menu_class . '"';
 
 			$fb_output .= '>';
-			$fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a></li>';
+			$fb_output .= '<li><a href="' . esc_url(admin_url( 'nav-menus.php' )) . '">Add a menu</a></li>';
 			$fb_output .= '</ul>';
 
 			if ( $container )

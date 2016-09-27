@@ -4,10 +4,10 @@ Theme URI: http://zacklive.com/zacklive-bootstrap-underscores-wordpress-starter-
 Author: Zack
 Author URI: http://zacklive.com
 Description: A WordPress Starter theme based on Twitter Bootstrap and Automattic Underscore(_s). Supporting Font Awesome, multi level dropdown navigation, Schema.org markup.
-Version: 1.0.2
+Version: 1.0.9
 
 Text Domain: zacklive
-Tags: fluid-layout, translation-ready, microformats, white, light, two-columns, right-sidebar, fixed-layout, responsive-layout, custom-background, custom-menu, editor-style, featured-images, flexible-header, full-width-template, post-formats, sticky-post, accessibility-ready
+Tags: translation-ready, microformats, two-columns, right-sidebar, custom-background, custom-menu, editor-style, featured-images, flexible-header, full-width-template, post-formats, sticky-post
 
 License: GNU General Public License V2 or Later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -488,6 +488,7 @@ li.current_page_ancestor a {
   color: #FFF !important;
 }
 .pagination li .active,
+.pagination li .current,
 .pagination li span:hover {
   background-color: #6AA3D5;
   color: #FFF;

@@ -1,26 +1,25 @@
 <?php
 /**
- * 1. html_tag_schema
+ * 1. zacklive_schema
  * 2. zacklive_comment_form
  * 3. zacklive_comment
  * 4. zacklive_attached_image
  * 5. zacklive_wp_title
  * 6. zacklive_paginate
- * 7. zacklive_paginate_loop
+ * 7. zacklive_more_link
  * 8. zacklive_password_form
  * 9. zacklive_post_nav
  * 10. zacklive_truncate_text
  */
 
-
 /**
- * 1. html_tag_schema
+ * 1. zacklive_schema
  * Schema for HTML, used in header.php
  * Used in header.php
  */
-if ( ! ( function_exists( 'html_tag_schema' ) ) ):
+if ( ! ( function_exists( 'zacklive_schema' ) ) ):
 
-function html_tag_schema() {
+function zacklive_schema() {
     $schema = 'http://schema.org/';
 
     // Is single post
@@ -49,7 +48,7 @@ function html_tag_schema() {
     echo 'itemscope="itemscope" itemtype="' . $schema . $type . '"';
 }
 
-endif; // end html_tag_schema
+endif; // end zacklive_schema
 
 
 /**
@@ -64,19 +63,22 @@ function zacklive_comment_form($args) {
     $args['fields'] = array(
         'author' => '
             <div class="comment-form-author form-group">
-                <input id="author" name="author" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . ( $req ? " aria-required='true'" : '' ) . ' placeholder="' . __( 'Your Name', 'zacklive' ) . ( $req ? '*' : '' ) . '" />
+              <label for="author" class="screen-reader-text">' . __('Author', 'zacklive') . '</label>
+              <input id="author" name="author" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . ( $req ? " aria-required='true'" : '' ) . ' placeholder="' . __( 'Your Name', 'zacklive' ) . ( $req ? '*' : '' ) . '" />
             </div>
         ',
 
         'email' => '
             <div class="comment-form-email form-group">
-                <input id="email" name="email" class="form-control" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .    '" size="30"' . ( $req ? " aria-required='true'" : '' ) . ' placeholder="' . __( 'Your Email', 'zacklive' ) . ( $req ? '*' : '' ) . '" />
+              <label for="email" class="screen-reader-text">' . __('Email', 'zacklive') . '</label>
+              <input id="email" name="email" class="form-control" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .    '" size="30"' . ( $req ? " aria-required='true'" : '' ) . ' placeholder="' . __( 'Your Email', 'zacklive' ) . ( $req ? '*' : '' ) . '" />
             </div>
         ',
 
         'url' => '
             <div class="comment-form-url last form-group">
-                <input id="url" name="url" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" placeholder="' . __( 'Your Website', 'zacklive' ) . '" />
+              <label for="url" class="screen-reader-text">' . __('Website', 'zacklive') . '</label>
+              <input id="url" name="url" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" placeholder="' . __( 'Your Website', 'zacklive' ) . '" />
             </div>
         '
     );
@@ -257,109 +259,45 @@ endif; // end zacklive_wp_title
 /**
  * 6. zacklive_paginate
  * Bootstrap Style Pagination
- * http://www.ericmmartin.com/pagination-function-for-wordpress/
  */
 if ( ! function_exists( 'zacklive_paginate' ) ) :
 
 function zacklive_paginate($args = null) {
-    $defaults = array(
-        'page' => null, 'pages' => null,
-        'range' => 3, 'gap' => 3, 'anchor' => 1,
-        'before' => '<ul class="pagination">', 'after' => '</ul>',
-        'nextpage' => __('&raquo;', 'zacklive'), 'previouspage' => __('&laquo', 'zacklive'),
-        'echo' => 1
-    );
+  global $wp_query;
 
-  $r = wp_parse_args($args, $defaults);
-    extract($r, EXTR_SKIP);
+  $big = 999999999; // need an unlikely integer
+  $paginate_links = paginate_links( array(
+    'base' => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+    'format' => '?paged=%#%',
+    'show_all' => False,
+    'end_size' => 1,
+    'mid_size' => 2,
+    'prev_next' => True,
+    'prev_text' => __('&laquo;', 'zacklive'),
+    'next_text' => __('&raquo;', 'zacklive'),
+    'current' => max( 1, get_query_var('paged') ),
+    'total' => $wp_query->max_num_pages,
+    'type' => 'list'
+  ) );
 
-    if (!$page && !$pages) {
-        global $wp_query;
-
-        $page = get_query_var('paged');
-        $page = !empty($page) ? intval($page) : 1;
-
-        $posts_per_page = intval(get_query_var('posts_per_page'));
-        $pages = intval(ceil($wp_query->found_posts / $posts_per_page));
-    }
-
-    $output = "";
-    if ($pages > 1) {
-        $output .= "$before";
-        $ellipsis = "<li><span>...</span></li>";
-
-        if ($page > 1 && !empty($previouspage)) {
-            $output .= "<li><a href='" . get_pagenum_link($page - 1) . "'>$previouspage</a></li>";
-        }
-
-        $min_links = $range * 2 + 1;
-        $block_min = min($page - $range, $pages - $min_links);
-        $block_high = max($page + $range, $min_links);
-        $left_gap = (($block_min - $anchor - $gap) > 0) ? true : false;
-        $right_gap = (($block_high + $anchor + $gap) < $pages) ? true : false;
-
-        if ($left_gap && !$right_gap) {
-            $output .= sprintf('%s%s%s',
-                zacklive_paginate_loop(1, $anchor),
-                $ellipsis,
-                zacklive_paginate_loop($block_min, $pages, $page)
-            );
-        }
-        else if ($left_gap && $right_gap) {
-            $output .= sprintf('%s%s%s%s%s',
-                zacklive_paginate_loop(1, $anchor),
-                $ellipsis,
-                zacklive_paginate_loop($block_min, $block_high, $page),
-                $ellipsis,
-                zacklive_paginate_loop(($pages - $anchor + 1), $pages)
-            );
-        }
-        else if ($right_gap && !$left_gap) {
-            $output .= sprintf('%s%s%s',
-                zacklive_paginate_loop(1, $block_high, $page),
-                $ellipsis,
-                zacklive_paginate_loop(($pages - $anchor + 1), $pages)
-            );
-        }
-        else {
-            $output .= zacklive_paginate_loop(1, $pages, $page);
-        }
-
-        if ($page < $pages && !empty($nextpage)) {
-            $output .= "<li><a href='" . get_pagenum_link($page + 1) . "'>$nextpage</a></li>";
-        }
-
-        $output .= $after;
-    }
-
-    if ($echo) {
-        echo $output;
-    }
-
-    return $output;
+  $paginate_links = preg_replace('/page-numbers/', 'page-numbers pagination', $paginate_links, 1);
+  echo $paginate_links;
 }
 
 endif; // end zacklive_paginate
 
-
 /**
- * 7. zacklive_paginate_loop
- * Helper function for pagination which builds the page links.
+ * 7. zacklive_more_link
+ * Read more text > bootstrap button.
  */
-if ( ! function_exists( 'zacklive_paginate_loop' ) ) :
+if ( ! function_exists( 'zacklive_more_link' ) ) :
+function zacklive_more_link( $link, $link_button ) {
 
-function zacklive_paginate_loop($start, $max, $page = 0) {
-    $output = "";
-    for ($i = $start; $i <= $max; $i++) {
-        $output .= ($page === intval($i))
-            ? "<li><span class='active'>$i</span></li>"
-            : "<li><a href='" . get_pagenum_link($i) . "' class=''>$i</a></li>";
-    }
-    return $output;
+    return str_replace( $link_button, '<p><a href="' . get_permalink() . '" class="readmore btn btn-sm btn-primary " title="Read More">' . __( 'Read More', 'zacklive' ) . ' </a> </p>', $link );
 }
+add_filter( 'the_content_more_link', 'zacklive_more_link', 10, 2 );
 
-endif; // end zacklive_paginate_loop
-
+endif; // end zacklive_more_link
 
 /**
  * 8. zacklive_password_form
@@ -372,7 +310,7 @@ function zacklive_password_form() {
   $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
   $o = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post" class="form-inline">
   ' . __( "This content is password protected. To view it please enter your password below:", 'zacklive' ) . '
-  <label for="' . $label . '">' . __( "Password: ", 'zacklive' ) . ' </label><input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" class="form-control" /><input type="submit" class="btn btn-default" name="Submit" value="' . esc_attr__( "Submit" ) . '" />
+  <label for="' . $label . '">' . __( "Password: ", 'zacklive' ) . ' </label><input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" class="form-control" /><input type="submit" class="btn btn-default" name="Submit" value="' . esc_attr__( "Submit", "zacklive" ) . '" />
   </form>
   ';
   return $o;

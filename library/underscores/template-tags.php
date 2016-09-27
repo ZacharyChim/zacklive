@@ -30,7 +30,9 @@ function zacklive_posted_on() {
 		'<span class="author vcard" itemprop="name"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on"><span class="glyphicon glyphicon-calendar"></span>' . $posted_on . '</span><span class="byline"><span class="glyphicon glyphicon-user"></span>' . $byline . '</span>';
+	echo '<span class="posted-on"><span class="glyphicon glyphicon-calendar" aria-
+ hidden="true"></span>' . $posted_on . '</span><span class="byline"><span class="glyphicon glyphicon-user" aria-
+ hidden="true"></span>' . $byline . '</span>';
 }
 endif; // ends check for zacklive_posted_on()
 
@@ -45,23 +47,27 @@ function zacklive_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( __( ', ', 'zacklive' ) );
 		if ( $categories_list && zacklive_categorized_blog() ) {
-			printf( '<span class="cat-links"><span class="glyphicon glyphicon-folder-open"></span>%1$s' . '</span>', $categories_list );
+			printf( '<span class="cat-links"><span class="glyphicon glyphicon-folder-open" aria-
+ hidden="true"></span>%1$s' . '</span>', $categories_list );
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', __( ', ', 'zacklive' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links"><span class="glyphicon glyphicon-tags"></span>%1$s' . '</span>', $tags_list );
+			printf( '<span class="tags-links"><span class="glyphicon glyphicon-tags" aria-
+ hidden="true"></span>%1$s' . '</span>', $tags_list );
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link"><span class="glyphicon glyphicon-comment"></span>';
+		echo '<span class="comments-link"><span class="glyphicon glyphicon-comment" aria-
+ hidden="true"></span>';
 		comments_popup_link( __( 'Leave a comment', 'zacklive' ), __( '1 Comment', 'zacklive' ), __( '% Comments', 'zacklive' ) );
 		echo '</span>';
 	}
 
-	edit_post_link( __( 'Edit', 'zacklive' ), '<span class="edit-link"><span class="glyphicon glyphicon-edit"></span>', '</span>' );
+	edit_post_link( __( 'Edit', 'zacklive' ), '<span class="edit-link"><span class="glyphicon glyphicon-edit" aria-
+ hidden="true"></span>', '</span>' );
 }
 endif; // ends check for zacklive_entry_footer()
 

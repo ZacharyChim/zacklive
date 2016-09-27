@@ -3,7 +3,6 @@
  * functions and definitions
  */
 
-require_once( 'library/cleanup.php' );
 require_once( 'library/setup.php' );
 require_once( 'library/nav.php' );
 require_once( 'library/widgets.php' );

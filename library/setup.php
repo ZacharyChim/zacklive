@@ -64,12 +64,6 @@ if ( ! function_exists( 'zacklive_setup' ) ) :
             'aside', 'image', 'video', 'quote', 'link',
         ) );
 
-        // Set up the WordPress core custom background feature.
-        add_theme_support( 'custom-background', apply_filters( 'zacklive_custom_background_args', array(
-            'default-color' => 'ffffff',
-            'default-image' => '',
-        ) ) );
-
         /**
          * Setup the WordPress core custom background feature.
         */
